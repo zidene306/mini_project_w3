@@ -1,8 +1,4 @@
 import pandas as pd
-import pymysql
-import os
-from dotenv import load_dotenv
-# from sqlalchemy import create_engine
 
 def clean_country(df_origin):
     df=df_origin.copy();
@@ -56,6 +52,8 @@ def clean_country(df_origin):
     'entity_type'
     ] = 'country'
 
+    df=df.sort_values(by="country").reset_index(drop=True)
+    
     return df
 
 
